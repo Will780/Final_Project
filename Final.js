@@ -15,8 +15,8 @@ function ready() {
         resultc.innerHTML = height.value;
       };
 
-    function draw() {
-
+    button.onclick = function draw() {
+      
     }
 }
 document.addEventListener("DOMContentLoaded", ready);

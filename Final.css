@@ -1,12 +1,21 @@
 .slider {
-  margin-bottom: 20px;
-  margin-top: 10px;
+  margin-left: 1050px;
+}
+
+.slidehead {
+  margin-left: 1050px;
+}
+
+.canvas {
+  border:solid 4px blue;
 }
 
 h1 {
     margin-left: 492px;
 }
 
-html {
-    background-color: #fafafa;
+.image {
+  margin-top: 150px;
+  margin-bottom: 55px;
+  width: 200px;
 }
