@@ -8,6 +8,7 @@
 
 .canvas {
   border:solid 4px blue;
+  position: absolute;
 }
 
 h1 {
@@ -15,7 +16,8 @@ h1 {
 }
 
 .image {
-  margin-top: 150px;
+  margin-top: 260px;
   margin-bottom: 55px;
-  width: 200px;
+  margin-left: 10px;
+  width: 200px;  
 }
