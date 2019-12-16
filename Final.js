@@ -5,13 +5,15 @@ function ready() {
     angle.oninput = function() {
         console.log("Input Changed")
         resulta.innerHTML = angle.value;
-        deg = angle.value / 57.296; //conversion to degrees from radians
-        document.getElementById('cannon').style = `transform:rotate(-${deg}deg);`;
+        ang = angle.value
+        deg = ang / (180 / Math.PI); //conversion from radians to degrees
+        document.getElementById('cannon').style = `transform:rotate(-${ang}deg);`;
       };
+
     // Second slider
-    power.oninput = function() {
-      resultb.innerHTML = power.value;
-      vel = power.value;
+    velocity.oninput = function() {
+      resultb.innerHTML = velocity.value;
+      vel = velocity.value;
       console.log("Vel =" + vel);
       };
 
@@ -20,6 +22,15 @@ function ready() {
     //     resultc.innerHTML = height.value;
     //   };
 
+    // Redraws curve after slider is changed
+    angle.onchange = function() {
+      draw.call();
+    }
+    velocity.onchange = function() {
+      draw.call();
+    }
+
+      // Sets up canvas and draws curve
       function draw() {
         let Canvas = document.getElementById("mycanvas");
         console.log("Got canvas");
@@ -48,7 +59,7 @@ function ready() {
         let first = false
         if (Canvas.getContext) {
           Ctx = Canvas.getContext('2d');
-          Ctx.clearRect(0, 0, Width, Height);
+          Ctx.clearRect(0, 0, Width, Height); // Clears previous curve before drawing new one
           first = true;
         }
 
@@ -65,14 +76,6 @@ function ready() {
           }
         }
       Ctx.stroke();
-      }
-
-      angle.onchange = function() {
-        draw.call();
-      }
-
-      power.onchange = function() {
-        draw.call();
       }
 }
 document.addEventListener("DOMContentLoaded", ready);
