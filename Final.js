@@ -67,7 +67,10 @@ function ready() {
       
         Ctx.beginPath();
         for (let x = MinX(); x <= MaxX(); x += XSTEP) {
-          let y = x * (vel * Math.sin(deg)) / (vel * Math.cos(deg)) - 9.8 * (x / vel * Math.cos(deg)) * (x / vel * Math.cos(deg)) / 2;
+          // let y = x * Math.tan(deg) - ((9.8 * x * x) / (2 * vel * vel * Math.cos(deg) * Math.cos(deg)))
+          let y = x * ((vel * Math.sin(deg)) / (vel * Math.cos(deg))) - 4.9 * (x / vel * Math.cos(deg)) * (x / vel * Math.cos(deg));
+          resultc.innerHTML = (vel * vel * Math.sin(2 * deg)) / 9.8
+          resultd.innerHTML = (vel * Math.sin(deg) * vel * Math.sin(deg) * .5) / 9.8
           if (first) {
             Ctx.moveTo(XC(x),YC(y));
             first = false
