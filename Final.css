@@ -4,10 +4,11 @@
 
 .slidehead {
   margin-left: 1050px;
+  margin-top: 25px;
 }
 
 .canvas {
-  border:solid 2px black;
+  border: solid 2px black;
   background-color: rgba(59, 200, 255, 0.925);
   position: absolute;
 }
@@ -21,4 +22,8 @@ h1 {
   margin-bottom: 55px;
   margin-left: 10px;
   width: 200px;  
+}
+
+.html {
+  background-color: rgb(251, 251, 251);
 }
