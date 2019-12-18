@@ -14,10 +14,10 @@ function ready() {
     velocity.oninput = function() {
       resultb.innerHTML = velocity.value;
       vel = velocity.value;
-      console.log("Vel =" + vel);
+      console.log("Input Changed");
       };
 
-    // Redraws curve after slider is changed
+    // Redraws curve after sliders are changed
     angle.onchange = function() {
       draw.call();
     }
@@ -30,7 +30,8 @@ function ready() {
         let Canvas = document.getElementById("mycanvas");
         console.log("Got canvas");
         let Ctx = null;
-        let Width = Canvas.width //dimentions
+        // Dimentions
+        let Width = Canvas.width
         let Height = Canvas.height
         function MaxX() {
           return 25;
@@ -64,12 +65,11 @@ function ready() {
 
         for (let x = MinX(); x <= MaxX(); x += XSTEP) {
           let y = x * Math.tan(deg) - ((16.087 * x * x) / (2 * vel * vel * Math.cos(deg) * Math.cos(deg)))
-          //let y = x * ((vel * Math.sin(deg)) / (vel * Math.cos(deg))) - 4.9 * (x / vel * Math.cos(deg)) * (x / vel * Math.cos(deg));
           let range = (vel * vel * Math.sin(2 * deg)) / 9.8
           let mxh = (vel * Math.sin(deg) * vel * Math.sin(deg) * .5) / 9.8
           resultc.innerHTML = range.toFixed(3); //rounds off calculation after 3 decimal points
           resultd.innerHTML = mxh.toFixed(3);
-          if (first) {
+          if (first) { // Sets start point then moves through every following point
             Ctx.moveTo(XC(x),YC(y));
             first = false
           } else {
